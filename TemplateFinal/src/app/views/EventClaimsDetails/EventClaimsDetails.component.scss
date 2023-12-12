@@ -1,0 +1,11 @@
+@import '~@angular/material/prebuilt-themes/deeppurple-amber.css';
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); /* Divide into 4 equal columns */
+  gap: 10px; /* Adjust the gap between items */
+}
+
+.grid-item {
+  border: 1px solid #ccc; /* Add borders or styling as needed */
+  padding: 10px; /* Adjust padding as needed */
+}

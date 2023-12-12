@@ -1,0 +1,137 @@
+@import '~@angular/material/prebuilt-themes/deeppurple-amber.css';
+
+.card {
+    border: 2px solid #e0e0e0;
+
+    border-radius: 10px;
+    background-color: #fff;
+    padding: 10px;
+    margin-bottom: 20px;
+    max-width: 1200px;
+    width: 100%;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+    position: relative;
+
+}
+
+.card-2 {
+    border: 1px solid #e0e0e0;
+
+    border-radius: 5px;
+    background-color: #fff;
+    padding: 5px;
+    margin-bottom: 10px;
+    max-width: 1200px;
+    width: 100%;
+    box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.1);
+    position: relative;
+
+}
+
+.location {
+    position: absolute;
+    top: 10px;
+    /* Moved it upwards outside the card */
+    right: 0;
+    background-color: rgba(181, 204, 255, 0.6);
+    padding: 5px 15px;
+    /* Increased horizontal padding */
+    font-weight: bold;
+    /* Made text bold */
+    border: 2px solid #e0e0e0;
+    /* Border for the label */
+    border-radius: 10px;
+    /* Rounded corners */
+}
+
+.date {
+    display: block;
+    font-size: 14px;
+    /* Increased font size slightly */
+    margin: 0 auto 20px;
+    /* Centered the date */
+    color: grey;
+    text-align: center;
+    /* Centered text */
+}
+
+.delete-btn {
+    align-self: flex-end;
+    top: 100%;
+    display: block;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    font-size: 14px;
+    /* Adjust as needed */
+    color: red;
+}
+
+.description {
+    padding: 5px 15px;
+    word-wrap: break-word;
+    margin-bottom: 20px;
+    text-align: justify;
+    /* Justified text for better alignment */
+}
+
+.username {
+    font-weight: bold;
+    margin-right: 10px;
+    /* Added some space between username and comment */
+}
+
+.annotation input.form-control {
+    width: 100%;
+    padding: 8px 12px;
+    border: none;
+    background-color: transparent;
+    outline: none;
+    box-sizing: border-box;
+}
+
+.annotation {
+    display: inline-block;
+    background-color: #ffffe0;
+    padding: 0;
+    border: 1px solid #dcdcdc;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 14px;
+    width: 1000px;
+}
+
+.user-comment {
+    border-top: 1px solid #e0e0e0;
+    padding-top: 20px;
+    border-radius: 10px;
+    padding-right: 40px;
+    /* Give space for the delete button */
+    position: relative;
+    /* This will be the reference point for the absolute positioned buttons */
+    width: 500px;
+}
+
+.reply-link {
+    color: black;
+    /* Default text color when not hovered */
+    cursor: pointer;
+    /* Changes the mouse cursor to a hand, indicating interactivity */
+    transition: color 0.3s;
+    /* Optional: Smooth color transition on hover */
+}
+
+.reply-link:hover {
+    color: blue;
+    /* Text color when hovered */
+    text-decoration: underline;
+    /* Underline text when hovered */
+}
+.send-btn {
+    position: absolute;
+    bottom: -30px; /* Adjust based on the size of the button and desired position */
+    right: 50%;
+    transform: translateX(50%); /* Center the button */
+    background-color: #fff; /* Or any desired color */
+    border: 1px solid #dcdcdc;
+    cursor: pointer;
+}

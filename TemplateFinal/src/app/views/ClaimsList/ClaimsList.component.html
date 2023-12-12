@@ -1,0 +1,93 @@
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+<div class="sort-buttons">
+  <div class="status-filter">
+    
+    <div class="btn-group" role="group" aria-label="Status Buttons">
+      <button type="button"color="primary" variant="outline"  class="btn btn-secondary" [ngClass]="{'active': statusFilter === ''}" (click)="statusFilter = ''">All</button>
+      <button cButton color="warning" type="button" class="btn btn-secondary" [ngClass]="{'active': statusFilter === 'Unopened'}" (click)="statusFilter = 'Unopened'">Unopened</button>
+      <button cButton color="secondary" type="button" class="btn btn-secondary" [ngClass]="{'active': statusFilter === 'Opened'}" (click)="statusFilter = 'Opened'">Opened</button>
+      <button cButton color="success" type="button" class="btn btn-secondary" [ngClass]="{'active': statusFilter === 'Resolved'}" (click)="statusFilter = 'Resolved'">Resolved</button>
+      <button cButton color="danger"type="button" class="btn btn-secondary" [ngClass]="{'active': statusFilter === 'Closed'}" (click)="statusFilter = 'Closed'">Closed</button>
+    </div>
+  </div>
+</div>
+<div class="grid-container">
+ 
+  <div class="grid-item">
+    <h2>Events claims</h2>
+    <label for="claimType">Claim Type:</label> <br>
+    <select aria-label="Disabled select example"  cSelect id="claimType" [(ngModel)]="claimTypeFilters.events">
+      <option value="">All</option>
+    <option *ngFor="let type of eventClaimTypes" [value]="type">{{ type }}</option>
+    
+    </select>
+    <div *ngFor="let claim of filterClaims(eventClaims, claimTypeFilters.events, statusFilter)">
+      <c-card [textColor]="getTextColor(claim.status)" class="mb-3">
+        <c-card-header>{{claim.claimType}}</c-card-header>
+        <c-card-body>
+          <h5 cCardTitle>{{claim.eventId}}</h5>
+          <p cCardText>{{claim.incidentDescription}}</p>
+          <a [routerLink]="['/EventClaimsDetails', claim.id]" cButton color="primary">OPEN</a>
+        </c-card-body>
+      </c-card>
+    </div>
+  </div>
+  <div class="grid-item">
+    <h2>Blog claims</h2>
+    <label for="claimType">Claim Type:</label> <br>
+    <select aria-label="Disabled select example"  cSelect id="claimType" [(ngModel)]="claimTypeFilters.blog">
+      <option value="">All</option>
+    <option *ngFor="let type of blogClaimTypes" [value]="type">{{ type }}</option>
+    </select>
+    <div *ngFor="let claim of filterClaims(blogClaims, claimTypeFilters.blog, statusFilter)">
+      <c-card [textColor]="getTextColor(claim.status)" class="mb-3">
+        <c-card-header>{{claim.claimType}}</c-card-header>
+        <c-card-body>
+          <h5 cCardTitle>{{claim.postTitle}}</h5>
+          <p cCardText>{{claim.claimDescription}}</p>
+          <a [routerLink]="['/BlogClaimsDetails', claim.id]" cButton color="primary">OPEN</a>
+        </c-card-body>
+      </c-card>
+    </div>
+  </div>
+  <div class="grid-item">
+  <h2>Exchange Program claims</h2>
+  <label for="claimType">Claim Type:</label>
+    <select aria-label="Disabled select example"  cSelect id="claimType" [(ngModel)]="claimTypeFilters.exchangeProgram">
+      <option value="">All</option>
+    <option *ngFor="let type of exchangeProgramClaimTypes" [value]="type">{{ type }}</option>
+    </select>
+  <div *ngFor="let exchangeProgram of filterClaims(exchangeProgramClaims, claimTypeFilters.exchangeProgram, statusFilter) | paginate: { itemsPerPage: itemsPerPage, currentPage: p }" >
+    <c-card [textColor]="getTextColor(exchangeProgram.status)" class="mb-3">
+      <c-card-header>{{exchangeProgram.claimType}}</c-card-header>
+      <c-card-body>
+        <h5 cCardTitle>{{exchangeProgram.exchangeProgramId}}</h5>
+        <p cCardText>
+          {{exchangeProgram.claimDetails}}
+        </p>
+        <a [routerLink]="['/ExchangeProgramClaimsDetails', exchangeProgram.id]" cButton color="primary">OPEN</a>
+      </c-card-body>
+    </c-card>
+  </div>
+</div>
+  <div class="grid-item">
+  <h2>Partnership claims</h2>
+  <div *ngFor="let partnership of filterClaims(partnershipClaims, claimTypeFilters.exchangeProgram, statusFilter) | paginate: { itemsPerPage: itemsPerPage, currentPage: p }">
+    <c-card [textColor]="getTextColor(partnership.status)" class="mb-3">
+      <c-card-header>Partnership Claim</c-card-header>
+      <c-card-body>
+        <h5 cCardTitle>{{partnership.partnershipId}}</h5>
+        <p cCardText>
+          {{partnership.claimDetails}}
+        </p>
+        <a [routerLink]="['/PartnershipClaimsDetails', partnership.id]" cButton color="primary">OPEN</a>
+      </c-card-body>
+    </c-card>
+  </div>
+</div>
+</div>
+<pagination-controls (pageChange)="pageChanged($event)" class="pagination" previousLabel="Previous" nextLabel="Next"></pagination-controls>
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>

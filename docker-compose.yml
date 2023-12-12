@@ -1,0 +1,40 @@
+version: '3'
+
+services:
+  eureka-server:
+    image: eureka-server:latest
+    ports:
+      - "8061:8061"
+
+  app-user:
+    image: app-user:latest
+    ports:
+      - "8070:8070"
+
+  blog:
+    image: blog:latest
+    ports:
+      - "8065:8065"
+
+  comments:
+    image: comments-app:latest
+    ports:
+      - "8050:8050"
+
+  reactions:
+    image: reactions-app:latest
+    ports:
+      - "8045:8045"
+
+  db:
+    image: mysql:latest
+    environment:
+      MYSQL_ALLOW_EMPTY_PASSWORD: "yes"
+      MYSQL_DATABASE: Cultech
+    ports:
+      - "3306:3306"
+    volumes:
+      - mysql-data:/var/lib/mysql
+
+volumes:
+  mysql-data:

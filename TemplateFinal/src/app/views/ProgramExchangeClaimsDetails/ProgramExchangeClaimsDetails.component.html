@@ -1,0 +1,48 @@
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+<form cForm>
+  <fieldset>
+    <div class="mb-3">
+      <label cLabel for="exchangeProgramId">Exchange Program</label>
+      <input cFormControl id="exchangeProgramId" type="text" [value]="eventClaimDetails?.exchangeProgramId" readonly>
+    </div>
+    <div class="mb-3">
+      <label cLabel for="claimType">Claim Type</label>
+      <input cFormControl id="claimType" type="text" [value]="eventClaimDetails?.claimType" readonly>
+    </div>
+    <div class="mb-3">
+      <label cLabel for="claimDetails">Claim Details</label>
+      <textarea cFormControl id="claimDetails" readonly>{{ eventClaimDetails?.claimDetails }}</textarea>
+    </div>
+    
+    <div class="mb-3">
+    <label cLabel for="incidentDescription">Associated Files ( click to download )</label>
+    <div *ngFor="let file of files">
+      <a [href]="fileDownloadUrl(file)"> {{ file.fileName }}</a>
+    </div>
+  </div>
+    <div class="sort-buttons">
+      <div class="status-filter">
+        <div class="btn-group" role="group" aria-label="Status Buttons">
+         
+          <button cButton type="button" color="warning" class="btn btn-secondary"
+            [ngClass]="{'active': statusFilter === 'Unopened'}" (click)="statusFilter = 'Unopened'">Unopened</button>
+          <button cButton type="button" color="secondary" class="btn btn-secondary"
+            [ngClass]="{'active': statusFilter === 'Opened'}" (click)="statusFilter = 'Opened'">Opened</button>
+          <button cButton type="button" color="success" class="btn btn-secondary"
+            [ngClass]="{'active': statusFilter === 'Resolved'}" (click)="statusFilter = 'Resolved'">Resolved</button>
+          <button cButton type="button" color="danger" class="btn btn-secondary"
+            [ngClass]="{'active': statusFilter === 'Closed'}" (click)="statusFilter = 'Closed'">Closed</button>
+        </div>
+      </div>
+    </div>
+    <div></div> <br>
+    <div></div>
+    <div></div>
+    <input cButton type="submit" color="primary" value="Save" (click)="saveStatus()">
+  </fieldset>
+</form>
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>

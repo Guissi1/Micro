@@ -1,0 +1,184 @@
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+<div class="container">
+  <div class="row mb-4">
+    <div class="col-md-12">
+<c-button-group aria-label="Basic outlined example" role="group" class="mx-9">
+  <button (click)="toggleForm('eventForm')" cButton color="primary" variant="outline" class="custom-button">
+    Claim an Event
+  </button>
+  <button (click)="toggleForm('exchangeProgramForm')" cButton color="primary" variant="outline" class="custom-button">
+    Claim an exchange program
+  </button>
+  <button (click)="toggleForm('blogPostForm')" cButton color="primary" variant="outline" class="custom-button">
+    Claim a blog post
+  </button>
+  <button (click)="toggleForm('partnershipForm')" cButton color="primary" variant="outline" class="custom-button">
+    Claim a partner/partnership
+  </button>
+</c-button-group>
+</div>
+</div>
+<div class="row">
+  <div class="col-md-12">
+<div id="eventForm" class="form" [hidden]="selectedFormId !== 'eventForm'">
+
+  <form  [formGroup]="form" (ngSubmit)="submitForm()">
+    <div class="mb-3">
+      <label cLabel for="eventFormEmail">Select an event</label>
+      <select placeholder="Select an event" aria-label="Large select example" cSelect class="mb-3" sizing="lg" formControlName="eventId" (focus)="showEventOptions = true" (blur)="showEventOptions = false">
+
+        <option value="" disabled selected>Select an event</option>
+        <option *ngFor="let event of events" [value]="event">{{ event }}</option>
+      </select>
+    </div>
+
+    <div class="mb-3">
+      <label cLabel for="eventFormEmail">Claim type</label>
+      <select placeholder="Select a type" aria-label="Large select example" cSelect class="mb-3" sizing="lg" formControlName="claimType" (focus)="showEventOptions = true" (blur)="showEventOptions = false">
+        <option value="" disabled selected>Select a type</option>
+        <option *ngFor="let type of types" [value]="type">{{ type }}</option>
+      </select>
+    </div>
+    <div class="mb-3">
+      <label cLabel for="eventFormEmail">Incident Date</label>
+      <input cFormControl id="eventFormName" type="date"  formControlName="incidentDate" class="form-control"/>
+    </div>
+    <div class="mb-3">
+      <label cLabel for="eventFormDetails">Detailled description of the incident </label>
+      <textarea cFormControl id="eventFormDetails" rows="3" placeholder="Incident details"  formControlName="incidentDescription" class="form-control"></textarea>
+    </div>
+    <div class="mb-3">
+      <label cLabel for="fileInput">Upload relevant files (Photos,Videos,Screenshots)</label>
+
+      <div class="file-drop-container" (dragover)="onDragOver($event)" (dragleave)="onDragLeave($event)" (drop)="onDrop($event)">
+        <p class="drop-message">Drag & drop files here, or <strong>click</strong> to select files</p>
+        <input type="file" id="fileInput" multiple (change)="onFileSelect($event)" class="form-control" />
+      </div>
+      <div class="uploaded-files" *ngIf="uploadedFiles.length > 0">
+        <p>Uploaded files:</p>
+        <ul>
+          <li *ngFor="let file of uploadedFiles">{{ file.name }}</li>
+        </ul>
+      </div>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </form>
+  <mat-snack-bar-container></mat-snack-bar-container>
+</div>
+
+<div id="exchangeProgramForm" class="form" [hidden]="selectedFormId !== 'exchangeProgramForm'">
+  <form [formGroup]="formex" (ngSubmit)="submitFormex()">
+    <div class="mb-3">
+      <label cLabel for="eventFormEmail">Select an exchange program</label>
+      <select placeholder="Select an event" aria-label="Large select example" cSelect class="mb-3" sizing="lg"  formControlName="exchangeProgramId" (focus)="showEventOptions = true" (blur)="showEventOptions = false">
+        <option value="" disabled selected>Select an exchange program</option>
+        <option *ngFor="let exchangeProgram of exchangePrograms" [value]="exchangeProgram">{{ exchangeProgram }}</option>
+      </select>
+    </div>
+    <div class="mb-3">
+      <label cLabel for="eventFormEmail">Claim type</label>
+      <select placeholder="Select an event" aria-label="Large select example" cSelect class="mb-3" sizing="lg"  formControlName="claimType" (focus)="showEventOptions = true" (blur)="showEventOptions = false">
+        <option value="" disabled selected>Select a claim type</option>
+        <option *ngFor="let exchangeProgramClaim of exchangeProgramsClaims" [value]="exchangeProgramClaim">{{ exchangeProgramClaim }}</option>
+      </select>
+    </div>
+    <div class="mb-3">
+      <label cLabel for="eventFormDetails">Detailled description of the claim </label>
+      <textarea cFormControl id="eventFormDetails" rows="3" placeholder="Claim details"  formControlName="claimDetails" class="form-control"></textarea>
+    </div>
+    <div class="mb-3">
+      <label cLabel for="fileInput">Upload relevant files (Photos,Videos,Screenshots)</label>
+      <div class="file-drop-container" (dragover)="onDragOver($event)" (dragleave)="onDragLeave($event)" (drop)="onDrop($event)">
+        <p class="drop-message">Drag & drop files here, or <strong>click</strong> to select files</p>
+        <input type="file" id="fileInput" multiple (change)="onFileSelect($event)" class="form-control" />
+      </div>
+      <div class="uploaded-files" *ngIf="uploadedFiles.length > 0">
+        <p>Uploaded files:</p>
+        <ul>
+          <li *ngFor="let file of uploadedFiles">{{ file.name }}</li>
+        </ul>
+      </div>
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </form>
+  <mat-snack-bar-container></mat-snack-bar-container>
+</div>
+
+<div id="blogPostForm" class="form" [hidden]="selectedFormId !== 'blogPostForm'">
+  <form [formGroup]="formblog" (ngSubmit)="submitFormblog()">
+    <div class="mb-3">
+      <label cLabel for="blogPostTitle">Blog Post Title</label>
+      <input cFormControl id="blogPostTitle"  formControlName="postTitle" type="text" placeholder="Blog post title" />
+    </div>
+    <div class="mb-3">
+      <label cLabel for="blogPostTitle">Blog Post Publication Date</label>
+      <input cFormControl id="blogPostTitle" type="date"  formControlName="postPublicationDate"placeholder="Blog Publication Date" />
+    </div>
+    <div class="mb-3">
+      <label cLabel for="blogPostTitle">Blog Post URL/link</label>
+      <input cFormControl id="blogPostTitle" type="text"  formControlName="postURL"placeholder="Blog Post URL/link" />
+    </div>
+    <div class="mb-3">
+      <label cLabel for="eventFormEmail">Claim type</label>
+      <select placeholder="Select a claim type" aria-label="Large select example" cSelect class="mb-3" sizing="lg" formControlName="claimType" (focus)="showEventOptions = true" (blur)="showEventOptions = false">
+        <option value="" disabled selected>Select a claim type</option>
+        <option *ngFor="let BlogClaim of BlogClaims" [value]="BlogClaim">{{ BlogClaim }}</option>
+      </select>
+    </div>
+    <div class="mb-3">
+      <label cLabel for="blogPostContent">Detailled description of the claim</label>
+      <textarea cFormControl id="blogPostContent" rows="5"  formControlName="claimDescription" placeholder="Detailled description of the claim"></textarea>
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+
+  </form>
+</div>
+
+<div id="partnershipForm" class="form" [hidden]="selectedFormId !== 'partnershipForm'">
+
+  <form [formGroup]="formpart" (ngSubmit)="submitFormpart()">
+    <div class="mb-3">
+      <label cLabel for="eventFormEmail">Select a partnership</label>
+      <select placeholder="Select an event" aria-label="Large select example" cSelect class="mb-3" sizing="lg" formControlName="partnershipId" (focus)="showEventOptions = true" (blur)="showEventOptions = false">
+        <option value="" disabled selected>Select a partnership</option>
+        <option *ngFor="let partnership of partnerships" [value]="partnership">{{ partnership }}</option>
+      </select>
+    </div>
+    <div class="mb-3">
+      <label cLabel for="partnershipName">Partner Name</label>
+      <input cFormControl id="partnershipName" type="text" placeholder="Partner name" formControlName="partnerName" />
+    </div>
+    <div class="mb-3">
+      <label cLabel for="partnershipDescription">Partnership Description</label>
+      <textarea cFormControl id="partnershipDescription"  formControlName="partnershipDescription" rows="5" placeholder="Partnership description"></textarea>
+    </div>
+    <div class="mb-3">
+      <label cLabel for="blogPostContent">Detailled description of the claim</label>
+      <textarea cFormControl id="blogPostContent" rows="5"  formControlName="claimDetails" placeholder="Detailled description of the claim"></textarea>
+    </div>
+    <div class="mb-3">
+      <label cLabel for="fileInput">Upload relevant files (Photos,Videos,Screenshots)</label>
+      <div class="file-drop-container" (dragover)="onDragOver($event)" (dragleave)="onDragLeave($event)" (drop)="onDrop($event)">
+        <p class="drop-message">Drag & drop files here, or <strong>click</strong> to select files</p>
+        <input type="file" id="fileInput" multiple (change)="onFileSelect($event)" class="form-control" />
+      </div>
+      <div class="uploaded-files" *ngIf="uploadedFiles.length > 0">
+        <p>Uploaded files:</p>
+        <ul>
+          <li *ngFor="let file of uploadedFiles">{{ file.name }}</li>
+        </ul>
+      </div>
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+
+  </form>
+</div>
+</div>
+</div>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>

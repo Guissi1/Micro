@@ -1,0 +1,89 @@
+<link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+<div class="card" *ngIf="selectedBlog" >
+    <div class="header">
+        <span class="location">{{selectedBlog.country}}</span>
+        <h1>{{selectedBlog.title}}</h1>
+    </div>
+    <span class="date">{{selectedBlog.date}}</span>
+    <p class="description">
+        {{selectedBlog.description}}
+    </p>
+    <img src="data:image/jpeg;base64,{{selectedBlog.pictures}}" alt="Description of Image">
+
+
+    <div>
+        <!-- LIKE Reaction -->
+        <button (click)="handleReaction(reactionType.LIKE)" [disabled]="myreaction && myreaction !== 'LIKE'">
+            <span role="img" aria-label="Like">👍</span>
+            <span [class.noticed]="myreaction === 'LIKE'">{{ reactionsCount['LIKE'] }}</span>
+        </button>
+
+        <!-- LOVE Reaction -->
+        <button (click)="handleReaction(reactionType.LOVE)" [disabled]="myreaction && myreaction !== 'LOVE'">
+            <span role="img" aria-label="Love">❤️</span>
+            <span [class.noticed]="myreaction === 'LOVE'">{{ reactionsCount['LOVE'] }}</span>
+        </button>
+
+        <!-- ANGRY Reaction -->
+        <button (click)="handleReaction(reactionType.ANGRY)" [disabled]="myreaction && myreaction !== 'ANGRY'">
+            <span role="img" aria-label="Angry">😠</span>
+            <span [class.noticed]="myreaction === 'ANGRY'">{{ reactionsCount['ANGRY'] }}</span>
+        </button>
+
+        <!-- SAD Reaction -->
+        <button (click)="handleReaction(reactionType.SAD)" [disabled]="myreaction && myreaction !== 'SAD'">
+            <span role="img" aria-label="Sad">😢</span>
+            <span [class.noticed]="myreaction === 'SAD'">{{ reactionsCount['SAD'] }}</span>
+        </button>
+
+        <!-- DISLIKE Reaction -->
+        <button (click)="handleReaction(reactionType.DISLIKE)" [disabled]="myreaction && myreaction !== 'DISLIKE'">
+            <span role="img" aria-label="Dislike">👎</span>
+            <span [class.noticed]="myreaction === 'DISLIKE'">{{ reactionsCount['DISLIKE'] }}</span>
+        </button>
+
+        <!-- EXCITED Reaction -->
+        <button (click)="handleReaction(reactionType.EXCITED)" [disabled]="myreaction && myreaction !== 'EXCITED'">
+            <span role="img" aria-label="Excited">😆</span>
+            <span [class.noticed]="myreaction === 'EXCITED'">{{ reactionsCount['EXCITED'] }}</span>
+        </button>
+    </div>
+    <div class="comment-section">
+
+        <div class="user-comment">
+            <span class="username">{{this.Username}}</span>
+            <form #orderForm="ngForm">
+                <div class="annotation">
+                    <input class="form-control" type="text" id="blogTitleInput" name="content" required
+                        [(ngModel)]="selectedcomment.content" placeholder="Do you have anything in mind ? ">
+                    <button (click)="addComment()" class="send-button">Send</button>
+                </div>
+            </form>
+        </div>
+
+        <div *ngFor='let c of list_comment' class="comment-section">
+            <div class="review-container">
+                <div class="user-comment">
+                    <span class="username">{{c.iduser}}</span>
+                    <span class="date">{{c.commentedAt}}</span>
+                    <div class="annotation">
+                        <p>{{c.content}}</p>
+                        <button *ngIf="iduser === c.iduser" class="delete-btn"
+                            (click)="deletecomment(c.id)">&#10006;</button>
+                    </div>
+                </div>
+                <div class="user-comment-under-comment">
+                    <p class="reply-link" (click)="toggleReplyInput()">reply...</p>
+
+                    <form *ngIf="showReplyInput" #orderForm2="ngForm">
+                        <div class="annotation">
+                            <input class="form-control" type="text" id="reply" name="reply" required
+                                [(ngModel)]="reply.content" placeholder="your reply ?  ">
+                            <button (click)="addCommentForComment(c.id)" class="send-button">reply</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

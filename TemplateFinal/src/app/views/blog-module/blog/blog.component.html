@@ -1,0 +1,78 @@
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+<div class="card">
+  <div class="row">
+    <div class="col-md-12">
+      <form #orderForm="ngForm">
+        <div class="user-info">
+          <img src="./assets/img/avatars/8.jpg" alt="user image">
+          <div>
+            <input class="form-control" type="text" id="blogTitleInput" name="blogTitle" required
+                   [(ngModel)]="selectedBlog.title" placeholder="Your blog title">
+          </div>
+          <input class="form-control" type="text" id="country" name="blogcountry" required=""
+                 [(ngModel)]="selectedBlog.country" placeholder="Country your gona talk about ">
+
+        </div>
+        <div class="mb-3">
+          <label cLabel for="exampleFormControlTextarea1">Description</label>
+          <textarea cFormControl id="exampleFormControlTextarea1" name="blogDescription" rows="3"
+                    [(ngModel)]="selectedBlog.description"></textarea>
+        </div>
+        <div class="tag-input-container">
+          <!-- Display already selected fruits as tags -->
+          <span *ngFor="let fruit of selectedFruits" class="tag-loaded">
+                        {{fruit}} <button (click)="removeFruit(fruit)">×</button>
+                    </span>
+
+          <!-- This is the new tag input styled as a tag -->
+          <span class="tag-input-tag">
+                        <input name="newFruitInput" [(ngModel)]="newFruit" (keyup.enter)="addFruit()"
+                               placeholder="New tag...">
+                        <button (click)="addFruit()">+</button>
+                    </span>
+        </div>
+
+        <div class="post-actions">
+          <input type="file" (change)="onFileChange($event)">
+          <button (click)="submitBlog()">✅ Post</button>
+        </div>
+      </form>
+
+    </div>
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-12">
+    <tr *ngFor='let p of list_blogs' class="card">
+      <div class="user-info">
+        <img src="./assets/img/avatars/8.jpg" alt="user image">
+        <h2>{{p.iduser}}</h2>
+      </div>
+      <div class="card">
+        <p>{{p.title}}</p>
+        <p>{{p.description}}</p>
+        <!-- If p.hashtags is an array -->
+        <span class="tag-loaded" *ngFor="let hashtag of p.hashtags">
+                    {{hashtag}}
+                </span>
+      </div>
+      <div class="blog-image">
+        <img src="data:image/jpeg;base64,{{p.pictures}}" alt="Description of Image">
+      </div>
+
+      <div class="post-actions">
+        <button *ngIf="user_id=== p.iduser" type="button" class="btn btn-primary btn-round"
+                (click)="delete(p.id)">Delete</button>
+
+
+        <button type="submit" class="btn btn-success btn-round" [routerLink]="['/blog/blog/', p.id]">plus des
+          information</button>
+      </div>
+    </tr>
+
+  </div>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>

@@ -1,0 +1,193 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="715b982d-ead7-4d3c-b366-bc4f18a1cb28" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 7
+}</component>
+  <component name="ProjectId" id="2ZPvlgEp4LN67UKAekZoLZTLOKf" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
+    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
+    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
+    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;Spring Boot.AppUserApplication.executor&quot;: &quot;Run&quot;,
+    &quot;Spring Boot.BlogApplication.executor&quot;: &quot;Run&quot;,
+    &quot;Spring Boot.CommentsApplication.executor&quot;: &quot;Run&quot;,
+    &quot;Spring Boot.EurekaServerApplication.executor&quot;: &quot;Run&quot;,
+    &quot;Spring Boot.EventApplication.executor&quot;: &quot;Run&quot;,
+    &quot;Spring Boot.GatewayApplication.executor&quot;: &quot;Run&quot;,
+    &quot;Spring Boot.PartenariatApplication.executor&quot;: &quot;Run&quot;,
+    &quot;Spring Boot.ParticipationApplication.executor&quot;: &quot;Run&quot;,
+    &quot;Spring Boot.ProgEchApplication.executor&quot;: &quot;Run&quot;,
+    &quot;Spring Boot.ReactionsApplication.executor&quot;: &quot;Run&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;Rayen&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/microSERVICESSSSSS/CulTech&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
+    &quot;run.configurations.included.in.services&quot;: &quot;true&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  }
+}</component>
+  <component name="RunDashboard">
+    <option name="configurationTypes">
+      <set>
+        <option value="MicronautRunConfigurationType" />
+        <option value="QuarkusRunConfigurationType" />
+        <option value="SpringBootApplicationConfigurationType" />
+      </set>
+    </option>
+  </component>
+  <component name="RunManager" selected="Spring Boot.EventApplication">
+    <configuration default="true" type="JetRunConfigurationType">
+      <module name="partenariat" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType">
+      <module name="partenariat" />
+      <option name="filePath" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="AppUserApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <module name="AppUser" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.example.AppUser.AppUserApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="BlogApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <module name="Blog" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.example.Blog.BlogApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ClaimsApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <module name="Claims" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.example.claims.ClaimsApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="CommentsApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <module name="Comments" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.example.Comments.CommentsApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="EurekaServerApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <module name="EurekaServer" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.example.eurekaserver.EurekaServerApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="EventApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <module name="Event" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.example.Event.EventApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="GatewayApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <module name="Gateway" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.example.gateway.GatewayApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="PartenariatApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <module name="partenariat" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.example.partenariat.PartenariatApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ParticipationApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <module name="Participation" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.example.Participation.ParticipationApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ProgEchApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <module name="Prog-ech" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.example.Progech.ProgEchApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ReactionsApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <module name="Reactions" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.example.Reactions.ReactionsApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="jdk-17.0.9-corretto-17.0.9-3183f394aec4-8f899f12" />
+        <option value="jdk-19.0.2-corretto-19.0.2-3183f394aec4-f0552fc0" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="715b982d-ead7-4d3c-b366-bc4f18a1cb28" name="Changes" comment="" />
+      <created>1702336683816</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1702336683816</updated>
+      <workItem from="1702336688047" duration="190000" />
+      <workItem from="1702336909626" duration="1092000" />
+      <workItem from="1702339125212" duration="463000" />
+      <workItem from="1702339792339" duration="1377000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+</project>
